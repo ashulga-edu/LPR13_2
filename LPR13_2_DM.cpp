@@ -23,18 +23,13 @@ void __fastcall TdmVideo::DataModuleCreate(TObject *Sender)
         tblCassettes->Active = false;
         tblClients->Active = false;
         tblRent->Active = false;
-
         conVideo->Connected = false;
         conVideo->LoginPrompt = false;
-
         String dbPath = ExtractFilePath(Application->ExeName) + "Video.mdb";
-
         conVideo->ConnectionString =
             "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbPath +
             ";Persist Security Info=False";
-
         conVideo->Connected = true;
-
         tblCassettes->Open();
         tblClients->Open();
         tblRent->Open();
@@ -44,4 +39,3 @@ void __fastcall TdmVideo::DataModuleCreate(TObject *Sender)
         ShowMessage(L"Помилка відкриття БД:\n" + e.Message);
     }
 }
-
